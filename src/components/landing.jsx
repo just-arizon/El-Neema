@@ -17,7 +17,7 @@ const LandingPage = () => {
             <div className="text-orange-400">Empowering Underprivileged</div>
             <div>Children For A Brighter Tomorrow</div>
           </h1>
-          <p className='text-white text-center py-7 lg:w-3/4'>The Watch Word: Discover how much Light each child can bring into the world as individuals, inspiring hope and igniting change to make a difference today.</p>
+          <p className='text-white lg:text-start text-center py-7 lg:w-3/4'>The Watch Word: Discover how much Light each child can bring into the world as individuals, inspiring hope and igniting change to make a difference today.</p>
         </div>
       </div>
     </div>

@@ -1,150 +1,107 @@
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Image} from "@nextui-org/react";
-import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "./Icons.jsx";
-import Logo from "../assets/El-neema.svg";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Link,
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaChevronDown } from "react-icons/fa"; // Correctly import the ChevronDown icon
+import Logo from "../assets/El-neema.svg"; // Replace with your actual logo path
 
 export default function App() {
-  const icons = {
-    chevron: <ChevronDown fill="currentColor" size={16} />,
-    scale: <Scale className="text-warning" fill="currentColor" size={30} />,
-    lock: <Lock className="text-success" fill="currentColor" size={30} />,
-    activity: <Activity className="text-secondary" fill="currentColor" size={30} />,
-    flash: <Flash className="text-primary" fill="currentColor" size={30} />,
-    server: <Server className="text-success" fill="currentColor" size={30} />,
-    user: <TagUser className="text-danger" fill="currentColor" size={30} />,
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    "Our Founder",
+    "Features",
+    "About",
+    "Customers",
+    "Integrations",
+    "Donate",
+  ];
+
+  const dropdownItems = {
+    features: ["Feature 1", "Feature 2", "Feature 3"],
+    about: ["Our Team", "Our Mission", "Our Story"],
   };
 
   return (
-    <Navbar isBordered isBlurred={false}>
-      <NavbarBrand>
-       <img src={Logo} className=""/>
-      </NavbarBrand>
+    <Navbar isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
+      {/* Navbar brand and menu toggle */}
+      <NavbarContent className="w-full flex justify-between">
+        <NavbarBrand>
+          <img src={Logo} alt="Logo" className="" />
+        </NavbarBrand>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+          icon={<GiHamburgerMenu size={24} />}
+        />
+      </NavbarContent>
+
+      {/* Main navigation links for larger screens */}
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        
-      <NavbarItem >
+        <NavbarItem>
           <Link className="text-sm" color="foreground" href="#">
             Our Founder
           </Link>
         </NavbarItem>
+
+        {/* Features Dropdown */}
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
               <Button
                 disableRipple
                 className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                endContent={icons.chevron}
                 radius=""
                 variant=""
+                endContent={<FaChevronDown size={14} />} // Corrected the ChevronDown icon
               >
                 Features
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          <DropdownMenu
-            aria-label="ACME features"
-            className="w-[340px]"
-            itemClasses={{
-              base: "gap-4",
-            }}
-          >
-            <DropdownItem
-              key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
-              startContent={icons.scale}
-            >
-              Autoscaling
-            </DropdownItem>
-            <DropdownItem
-              key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-              startContent={icons.activity}
-            >
-              Usage Metrics
-            </DropdownItem>
-            <DropdownItem
-              key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
-              startContent={icons.flash}
-            >
-              Production Ready
-            </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
-              startContent={icons.server}
-            >
-              +99% Uptime
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
-              startContent={icons.user}
-            >
-              +Supreme Support
-            </DropdownItem>
+          <DropdownMenu>
+            {dropdownItems.features.map((item, index) => (
+              <DropdownItem key={index}>{item}</DropdownItem>
+            ))}
           </DropdownMenu>
         </Dropdown>
+
+        {/* About Dropdown */}
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
               <Button
                 disableRipple
                 className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                endContent={icons.chevron}
                 radius=""
                 variant=""
+                endContent={<FaChevronDown size={14} />} // Corrected the ChevronDown icon
               >
                 About
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          <DropdownMenu
-            aria-label="ACME features"
-            className="w-[340px]"
-            itemClasses={{
-              base: "gap-4",
-            }}
-          >
-            <DropdownItem
-              key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
-              startContent={icons.scale}
-            >
-              Autoscaling
-            </DropdownItem>
-            <DropdownItem
-              key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-              startContent={icons.activity}
-            >
-              Usage Metrics
-            </DropdownItem>
-            <DropdownItem
-              key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
-              startContent={icons.flash}
-            >
-              Production Ready
-            </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
-              startContent={icons.server}
-            >
-              +99% Uptime
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
-              startContent={icons.user}
-            >
-              +Supreme Support
-            </DropdownItem>
+          <DropdownMenu>
+            {dropdownItems.about.map((item, index) => (
+              <DropdownItem key={index}>{item}</DropdownItem>
+            ))}
           </DropdownMenu>
         </Dropdown>
 
-
-        <NavbarItem >
+        <NavbarItem>
           <Link className="text-sm" color="foreground" href="#">
             Customers
           </Link>
@@ -155,13 +112,31 @@ export default function App() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
+
+      {/* Donate button for larger screens */}
+      <NavbarContent justify="end" className="hidden sm:flex">
         <NavbarItem>
-          <Button as={Link} color="" href="#" variant="" className="bg-orange-400 text-white rounded-full font-bold  px-8">
-            DONATE
-          </Button>
+        <Button as={Link} color="" href="#" variant="" className="bg-orange-400 text-white rounded-full font-bold px-8">
+                DONATE
+              </Button>
         </NavbarItem>
       </NavbarContent>
+
+      {/* Hamburger menu for small screens */}
+      <NavbarMenu isOpen={isMenuOpen} className="sm:hidden">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={index}>
+            <Link
+              color={index === menuItems.length - 1 ? "primary" : "foreground"}
+              className="w-full"
+              href="#"
+              size="lg"
+            >
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }
