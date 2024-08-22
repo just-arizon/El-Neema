@@ -15,7 +15,7 @@ export default function App() {
   };
 
   return (
-    <Navbar>
+    <Navbar isBordered isBlurred={false}>
       <NavbarBrand>
        <img src={Logo} className=""/>
       </NavbarBrand>
