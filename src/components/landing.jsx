@@ -1,6 +1,8 @@
 import React from 'react';
 import Landing from '../assets/landing.jpg';
-
+import {
+  Button, Link
+} from "@nextui-org/react";
 const LandingPage = () => {
   return (
     <div className="relative flex flex-row gap-8">
@@ -18,6 +20,17 @@ const LandingPage = () => {
             <div>Children For A Brighter Tomorrow</div>
           </h1>
           <p className='text-white lg:text-start text-center py-7 lg:w-3/4'>The Watch Word: Discover how much Light each child can bring into the world as individuals, inspiring hope and igniting change to make a difference today.</p>
+        <div className="flex lg:justify-start justify-center pt-5">
+        <Button
+                  as={Link}
+                  href={"#"}
+                  className="bg-orange-400 text-white rounded-full font-bold px-8"
+                  size="lg"
+                >
+                  Donate
+                </Button>
+        </div>
+       
         </div>
       </div>
     </div>

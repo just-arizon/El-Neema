@@ -20,19 +20,19 @@ import Logo from "../assets/El-neema.svg"; // Replace with your actual logo path
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [openDropdown, setOpenDropdown] = React.useState(null);
 
   const menuItems = [
-    "Our Founder",
-    "Features",
-    "About",
-    "Customers",
-    "Integrations",
-    "Donate",
+    { name: "Our Founder", link: "#" },
+    { name: "Features", link: "#", subMenu: ["Feature 1", "Feature 2", "Feature 3"] },
+    { name: "About", link: "#", subMenu: ["About Us", "Our Team", "Ongoing Project", "Board Members", "Past Projects"] },
+    { name: "Customers", link: "#" },
+    { name: "Integrations", link: "#" },
+    { name: "Donate", link: "#", isButton: true },
   ];
 
-  const dropdownItems = {
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    about: ["Our Team", "Our Mission", "Our Story"],
+  const handleDropdownToggle = (dropdownName) => {
+    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
   };
 
   return (
@@ -40,7 +40,7 @@ export default function App() {
       {/* Navbar brand and menu toggle */}
       <NavbarContent className="w-full flex justify-between">
         <NavbarBrand>
-          <img src={Logo} alt="Logo" className="" />
+          <img src={Logo} alt="Logo" />
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -51,89 +51,114 @@ export default function App() {
 
       {/* Main navigation links for larger screens */}
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
-            Our Founder
-          </Link>
-        </NavbarItem>
-
-        {/* Features Dropdown */}
-        <Dropdown>
-          <NavbarItem>
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                radius=""
-                variant=""
-                endContent={<FaChevronDown size={14} />} // Corrected the ChevronDown icon
-              >
-                Features
-              </Button>
-            </DropdownTrigger>
-          </NavbarItem>
-          <DropdownMenu>
-            {dropdownItems.features.map((item, index) => (
-              <DropdownItem key={index}>{item}</DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
-
-        {/* About Dropdown */}
-        <Dropdown>
-          <NavbarItem>
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-                radius=""
-                variant=""
-                endContent={<FaChevronDown size={14} />} // Corrected the ChevronDown icon
-              >
-                About
-              </Button>
-            </DropdownTrigger>
-          </NavbarItem>
-          <DropdownMenu>
-            {dropdownItems.about.map((item, index) => (
-              <DropdownItem key={index}>{item}</DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
-
-        <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-sm" color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-
-      {/* Donate button for larger screens */}
-      <NavbarContent justify="end" className="hidden sm:flex">
-        <NavbarItem>
-        <Button as={Link} color="" href="#" variant="" className="bg-orange-400 text-white rounded-full font-bold px-8">
-                DONATE
-              </Button>
-        </NavbarItem>
+        {menuItems.map((item, index) => (
+          <React.Fragment key={index}>
+            {item.subMenu ? (
+              <Dropdown>
+                <NavbarItem>
+                  <DropdownTrigger>
+                    <Button
+                      disableRipple
+                      className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                      radius=""
+                      variant=""
+                      endContent={<FaChevronDown size={14} />}
+                      onClick={() => handleDropdownToggle(item.name)}
+                    >
+                      {item.name}
+                    </Button>
+                  </DropdownTrigger>
+                </NavbarItem>
+                <DropdownMenu
+                  className="w-[200px] p-0"
+                  isOpen={openDropdown === item.name}
+                  onClose={() => setOpenDropdown(null)}
+                >
+                  {item.subMenu.map((subItem, subIndex) => (
+                    <DropdownItem
+                      key={subIndex}
+                      className="py-2 px-4 hover:bg-pink-200 hover:text-white transition-colors duration-200"
+                    >
+                      {subItem}
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              </Dropdown>
+            ) : (
+              <NavbarItem>
+                <Link className="text-sm" color="foreground" href={item.link}>
+                  {item.isButton ? (
+                    <Button
+                      as={Link}
+                      href={item.link}
+                      className="bg-orange-400 text-white rounded-full font-bold px-8"
+                      size="lg"
+                    >
+                      {item.name}
+                    </Button>
+                  ) : (
+                    item.name
+                  )}
+                </Link>
+              </NavbarItem>
+            )}
+          </React.Fragment>
+        ))}
       </NavbarContent>
 
       {/* Hamburger menu for small screens */}
       <NavbarMenu isOpen={isMenuOpen} className="sm:hidden">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={index}>
-            <Link
-              color={index === menuItems.length - 1 ? "primary" : "foreground"}
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
+            {item.subMenu ? (
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button
+                    as={Link}
+                    href={item.link}
+                    className="w-full text-left"
+                    onClick={() => handleDropdownToggle(item.name)}
+                  >
+                    {item.name}
+                    <FaChevronDown size={14} className="ml-2" />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu
+                  className="w-full bg-pink-100"
+                  isOpen={openDropdown === item.name}
+                  onClose={() => setOpenDropdown(null)}
+                >
+                  {item.subMenu.map((subItem, subIndex) => (
+                    <DropdownItem
+                      key={subIndex}
+                      className="py-2 px-4 hover:bg-pink-200 hover:text-white transition-colors duration-200"
+                    >
+                      {subItem}
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              </Dropdown>
+            ) : (
+              item.isButton ? (
+                <Button
+                  as={Link}
+                  href={item.link}
+                  className="bg-orange-400 text-white rounded-md font-bold px-8"
+                  size="lg"
+                >
+                  {item.name}
+                </Button>
+              ) : (
+                <Link
+                  color="foreground"
+                  className="w-full"
+                  href={item.link}
+                  size="lg"
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
