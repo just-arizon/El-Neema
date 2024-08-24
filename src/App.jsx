@@ -12,6 +12,8 @@ function App() {
     <Navbar />
     <Landing />
     <About />
+    <About />
+
     </>
   )
 }
