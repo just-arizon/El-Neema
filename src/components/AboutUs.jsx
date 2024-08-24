@@ -1,6 +1,19 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
 import Image1 from '../assets/about1.jpg'
+import { motion } from "framer-motion";
+const textVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3, // Stagger the animation
+      duration: 0.6,
+      ease: 'easeInOut',
+    },
+  }),
+};
 const aboutUs = () => {
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-24 py-20 gap-10 px-5">
@@ -9,12 +22,17 @@ const aboutUs = () => {
           <h1 className="text-lg text-orange-400 lg:text-start text-center mb-4">About Us</h1>
           </div>
         <div className="w-/12 grid lg:gap-1 gap-8">
-          <div className="lg:w-9/12">
-            <h2 className="lg:text-4xl text-3xl font-semibold lg:text-start text-center">
+          <motion.div 
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          transition={{ staggerChildren: 0.5 }} // Staggering the child elements
+          className="lg:w-9/12">
+            <motion.h2 className="lg:text-4xl text-3xl font-semibold lg:text-start text-center" variants={textVariant} custom={0}>
               We have impacted 8000 kids across different states in Nigeria
-            </h2>
+            </motion.h2>
 
-          </div>
+          </motion.div>
           <div className="flex lg:justify-start justify-center">
             <div className="w-12 h-1 lg:mt-2 bg-orange-400"></div>
           </div>
