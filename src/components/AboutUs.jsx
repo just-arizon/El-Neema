@@ -3,7 +3,7 @@ import { Image } from "@nextui-org/react";
 import Image1 from '../assets/about1.jpg'
 const aboutUs = () => {
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-32 py-20 gap-10 px-5">
+    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-24 py-20 gap-10 px-5">
       <div className="grid gap-">
         <div>
           <h1 className="text-lg text-orange-400 lg:text-start text-center mb-4">About Us</h1>
@@ -30,8 +30,8 @@ const aboutUs = () => {
         </div>
       </div>
       <div>
-       <div className="lg:w-8/12">
-        <Image src={Image1}/>
+       <div className="lg:w-full bg-purple- ">
+        <Image src={Image1} className="lg:w-8/12"/>
        </div>
 
       </div>

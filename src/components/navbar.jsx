@@ -38,7 +38,7 @@ export default function App() {
   return (
     <Navbar isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
       {/* Navbar brand and menu toggle */}
-      <NavbarContent className="w-full flex justify-between">
+      <NavbarContent className="relative lg:-left-20 w-full flex justify- container bg-slate-">
         <NavbarBrand>
           <img src={Logo} alt="Logo" />
         </NavbarBrand>
@@ -50,7 +50,7 @@ export default function App() {
       </NavbarContent>
 
       {/* Main navigation links for larger screens */}
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4 relative lg:-right-20 " justify="center">
         {menuItems.map((item, index) => (
           <React.Fragment key={index}>
             {item.subMenu ? (
