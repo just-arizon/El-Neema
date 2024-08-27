@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import Landing from './components/landing';
 import Info from './components/info';
 import About from './components/AboutUs';
+import Donation from './components/Donation';
 function App() {
 
   return (
@@ -11,7 +12,7 @@ function App() {
     <Info />
     <Navbar />
     <Landing />
-    <About />
+    <Donation />
     <About />
 
     </>

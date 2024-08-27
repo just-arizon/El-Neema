@@ -23,11 +23,11 @@ export default function App() {
   const [openDropdown, setOpenDropdown] = React.useState(null);
 
   const menuItems = [
-    { name: "Our Founder", link: "#" },
+    // { name: "Our Founder", link: "#" },
     { name: "Features", link: "#", subMenu: ["Feature 1", "Feature 2", "Feature 3"] },
     { name: "About", link: "#", subMenu: ["About Us", "Our Team", "Ongoing Project", "Board Members", "Past Projects"] },
-    { name: "Customers", link: "#" },
-    { name: "Integrations", link: "#" },
+    { name: "Sponsors", link: "#" },
+    { name: "Contact", link: "#" },
     { name: "Donate", link: "#", isButton: true },
   ];
 
@@ -38,7 +38,7 @@ export default function App() {
   return (
     <Navbar isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
       {/* Navbar brand and menu toggle */}
-      <NavbarContent className="relative lg:-left-20 w-full flex justify- container bg-slate-">
+      <NavbarContent className="relative lg:-left-20 w-full flex flex-1 justify- container bg-slate-">
         <NavbarBrand>
           <img src={Logo} alt="Logo" />
         </NavbarBrand>
@@ -50,7 +50,7 @@ export default function App() {
       </NavbarContent>
 
       {/* Main navigation links for larger screens */}
-      <NavbarContent className="hidden sm:flex gap-4 relative lg:-right-20 " justify="center">
+      <NavbarContent className="hidden sm:hidden sm:flex flex-1 gap-4 relative lg:-right-20 " justify="center">
         {menuItems.map((item, index) => (
           <React.Fragment key={index}>
             {item.subMenu ? (

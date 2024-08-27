@@ -16,7 +16,7 @@ const textVariant = {
 };
 const aboutUs = () => {
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-24 py-20 gap-10 px-5">
+    <div className="grid lg:grid-cols-2 grid-cols-1 lg:px-24 py-20 gap-10 px-5 bg-pink-">
       <div className="grid gap-">
         <div>
           <h1 className="text-lg text-orange-400 lg:text-start text-center mb-4">About Us</h1>

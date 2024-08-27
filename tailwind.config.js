@@ -18,13 +18,16 @@ export default {
       keyframes: {
         pulseBorder: {
           '0%': {
-            boxShadow: '0 0 0 0 rgba(249, 115, 22, 0.5)', // Start with a small shadow
+            boxShadow: '0 0 0 0 rgba(255, 255,255, 0.5)', // Start with a small shadow
+          },
+          '50%': {
+            boxShadow: '0 0 0 10px rgba(255, 255,255, 0)', // Expand shadow
           },
           '70%': {
-            boxShadow: '0 0 0 50px rgba(249, 115, 22, 0)', // Expand shadow
+            boxShadow: '0 0 0 20px rgba(255, 255,255, 0)', // Expand shadow
           },
           '100%': {
-            boxShadow: '0 0 0 0 rgba(249, 115, 22, 0)', // Reset shadow
+            boxShadow: '0 0 0 0 rgba(255, 255,255, 0)', // Reset shadow
           },
         },
       },
