@@ -22,7 +22,7 @@ const LandingPage = () => {
   const [showVideo, setShowVideo] = useState(false);
  
   return (
-    <motion.div className="relative flex flex-row gap-8">
+    <motion.div className="relative flex flex-row gap-4">
       <div
         className="grid-layout bg-cover bg-center lg:w-full w-full h-full absolute"
         style={{ backgroundImage: `url(${Landing})` }}
@@ -31,13 +31,13 @@ const LandingPage = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
       <div className="landing relative flex flex-col justify-center items-center z-10 w-full h-screen">
-        <div className="flex flex-col justify-center mb-5 mt-5 lg:pr-40 lg:pl-20 px-8">
+        <div className="flex flex-col justify-center mb-5 mt-5 lg:pr-40 lg:pl-20 px-8 bg-pink- w-full">
           <motion.h1
             initial="hidden"
             animate="visible"
             exit="hidden"
             transition={{ staggerChildren: 0.5 }} // Staggering the child elements
-            className="text-white lg:text-7xl md:text-5xl text-4xl lg:font-semibold font-bold lg:text-start text-center lg:w-full md:w-full"
+            className="text-white lg:text-7xl md:text-5xl text-3xl lg:font-semibold font-bold lg:text-start text-center lg:w-full md:w-full"
           >
             <motion.div
               variants={textVariant}
@@ -55,14 +55,14 @@ const LandingPage = () => {
             animate="visible"
             variants={textVariant}
             custom={2}
-            className="text-white lg:text-start text-center py-7 lg:w-3/4"
+            className="text-white lg:text-start text-center py-3 lg:w-3/4"
           >
             The Watch Word: Discover how much Light each child can bring into
             the world as individuals, inspiring hope and igniting change to make
             a difference today.
           </motion.p>
 
-          <div className="flex lg:justify-start justify-center pt-5 gap-4">
+          <div className="flex lg:justify-start justify-center pt-3 gap-4">
             <Button
               as={Link}
               href={"#"}

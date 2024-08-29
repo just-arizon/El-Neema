@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import Landing from './components/landing';
 import Info from './components/info';
 import About from './components/AboutUs';
+import Footer from './components/Footer';
 import Donation from './components/Donation';
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <Landing />
     <Donation />
     <About />
+    <Footer />
 
     </>
   )
