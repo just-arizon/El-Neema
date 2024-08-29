@@ -146,7 +146,7 @@ export default function App() {
           </NavbarMenuItem>
 
         ))}
-        <div className='bg-[#1a1a1a] w-full py-10 text-white text-center gap-2 grid px-3 ml-3 relative top-10'>
+        <div className='bg-[#1a1a1a] w-full py-10 text-white text-center gap-2 grid px-3  relative top-10'>
       <div className="grid gap-5">
         <small className="flex gap-1">
           <div className='grid items-center'><FaPhoneFlip /></div>
