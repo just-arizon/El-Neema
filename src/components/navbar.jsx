@@ -29,7 +29,7 @@ export default function App() {
     { name: "About", link: "#", subMenu: ["Founder", "About Us", "Our Team", "Ongoing Project", "Board Members"] },
     { name: "Contact Us", link: "#" },
     { name: "Support Us", link: "#" }, 
-    // { name: "Donate", link: "#", isButton: true },
+    { name: "Donate", link: "#", isButton: true },
   ];
 
   const handleAccordionToggle = (itemName) => {

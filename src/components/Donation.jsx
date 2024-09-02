@@ -4,8 +4,9 @@ import { PiGraduationCap } from "react-icons/pi";
 import { FaHeartbeat } from "react-icons/fa";
 import { FaChartPie } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import { FlutterWaveButton } from 'flutterwave-react-v3';
 
-const Donation = () => {
+const Donation = ({ fwConfig }) => {
   const items = [
     {
       id: 1,
@@ -18,7 +19,7 @@ const Donation = () => {
       id: 2,
       icon: <FaHeartbeat />,
       header: "Medical Care",
-      body: "We offer vital medical care to children in need, promoting well-being and hope. ",
+      body: "We offer vital medical care to children in need, promoting well-being and hope.",
       cta: "Donate Us",
     },
     {
@@ -33,6 +34,7 @@ const Donation = () => {
       icon: "",
       header: "Our main goal is to Impact Chidrens Lives!",
       cta: "BECOME A VOLUNTEER",
+      href: "https://docs.google.com/forms/d/e/1FAIpQLSfRR6UwEJ89KyRzlqHmaEHD7xNgjwug8aGNBCryQwkdSgEqNA/viewform",
     },
   ];
 
@@ -58,19 +60,21 @@ const Donation = () => {
             <div className="grid grid-flow-row gap-5">
               <small className="">{item.body}</small>
               <div className="">
-                <Button
-                  className={`
-              ${
-                index === items.length - 1
-                  ? " text-white bg-transparent font-semibold"
-                  : "bg-transparent font-semibold text-orange-500"
-              }
-uppercase
-              `}
-                >
-                  {item.cta}
-                  <FaArrowRight />
-                </Button>
+                {index < items.length - 1 ? (
+                  <FlutterWaveButton {...fwConfig} className="uppercase bg-transparent font-semibold text-orange-500">
+                    {item.cta}
+                    <FaArrowRight />
+                  </FlutterWaveButton>
+                ) : (
+                  <Button
+                    className="text-white bg-transparent font-semibold uppercase"
+                    as="a"
+                    href={item.href}
+                  >
+                    {item.cta}
+                    <FaArrowRight />
+                  </Button>
+                )}
               </div>
             </div>
           </div>
