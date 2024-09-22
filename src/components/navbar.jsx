@@ -39,6 +39,7 @@ export default function App() {
     );
   };
 
+
   return (
     <Navbar isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
       {/* Navbar brand and menu toggle */}
@@ -61,7 +62,7 @@ export default function App() {
               <Button
                 as={Link}
                 href={item.link}
-                className="bg-orange-400 text-white rounded-full font-bold px-8"
+                className="bg-orange-500 text-white rounded-full font-bold px-8"
                 size="lg"
               >
                 {item.name}

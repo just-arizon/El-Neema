@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import Landing from './components/landing';
 import Info from './components/info';
 import About from './components/AboutUs';
+import Explore from './components/Explore';
 import Footer from './components/Footer';
 import Donation from './components/Donation';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
@@ -30,7 +31,7 @@ function App() {
 
   const fwConfig = {
     ...config,
-    text: 'Donate to us',
+    text: 'Donate',
     callback: (response) => {
        console.log(response);
       closePaymentModal() // this will close the modal programmatically
@@ -44,6 +45,7 @@ function App() {
     <Landing />
     <Donation fwConfig={fwConfig}/>
     <About />
+    <Explore />
     <Footer />
 
     </>

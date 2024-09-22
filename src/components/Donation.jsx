@@ -4,7 +4,7 @@ import { PiGraduationCap } from "react-icons/pi";
 import { FaHeartbeat } from "react-icons/fa";
 import { FaChartPie } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
-import { FlutterWaveButton } from 'flutterwave-react-v3';
+import { FlutterWaveButton } from "flutterwave-react-v3";
 
 const Donation = ({ fwConfig }) => {
   const items = [
@@ -61,9 +61,12 @@ const Donation = ({ fwConfig }) => {
               <small className="">{item.body}</small>
               <div className="">
                 {index < items.length - 1 ? (
-                  <FlutterWaveButton {...fwConfig} className="uppercase bg-transparent font-semibold text-orange-500">
+                  <FlutterWaveButton
+                    {...fwConfig}
+                    className="uppercase bg-transparent font-semibold text-orange-500"
+                  >
                     {item.cta}
-                    <FaArrowRight />
+                    <FaArrowRight/>
                   </FlutterWaveButton>
                 ) : (
                   <Button
