@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import BackgroundImage from "../assets/explore1.jpg";
 import { SiWorldhealthorganization } from "react-icons/si";
@@ -19,7 +19,18 @@ const Explore = () => {
       },
     }),
   };
+  const [count, setCount] = useState(0);
 
+  // Count-up effect to 3000
+  useEffect(() => {
+    if (count < 3000) {
+      const timer = setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+      }, 1); // Speed up or slow down the interval as needed
+
+      return () => clearInterval(timer); // Cleanup
+    }
+  }, [count]);
   const items = [
     {
       id: 1,
@@ -36,7 +47,7 @@ const Explore = () => {
     {
       id: 3,
       icons: <FaPeopleGroup size={40}/>,
-      numbers: "+3000",
+      numbers:  `+ ${count}`,
       title: "Supporters",
     },
     {
