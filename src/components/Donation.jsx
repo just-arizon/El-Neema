@@ -56,10 +56,10 @@ const Donation = ({ fwConfig }) => {
               }`}
           >
             <div className="text-4xl text-orange-500">{item.icon}</div>
-            <div className="font-semibold">{item.header}</div>
+            <div className="font-semibold font-Inter">{item.header}</div>
             <div className="grid grid-flow-row gap-5">
-              <small className="">{item.body}</small>
-              <div className="">
+              <small className="font-Montserrat">{item.body}</small>
+              <div className="font-Inter">
                 {index < items.length - 1 ? (
                   <FlutterWaveButton
                     {...fwConfig}

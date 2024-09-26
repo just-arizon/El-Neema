@@ -34,7 +34,7 @@ const aboutUs = () => {
             className="lg:w-9/12"
           >
             <motion.h2
-              className="lg:text-4xl text-3xl font-semibold lg:text-start text-center"
+              className="lg:text-4xl text-3xl font-semibold lg:text-start text-center font-Inter"
               variants={textVariant}
               custom={0}
             >
@@ -45,7 +45,7 @@ const aboutUs = () => {
             <div className="w-12 h-1 lg:mt-2 bg-orange-400"></div>
           </div>
 
-          <p className="text-center lg:text-start  mb-24">
+          <p className="text-center lg:text-start  mb-24 font-Montserrat">
             The Glow Foundation, established in September 2022, has been working
             for several years. Its mission is to provide assistance to
             underprivileged children, including street kids, slum kids, orphans,
