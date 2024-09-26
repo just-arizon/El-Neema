@@ -33,19 +33,18 @@ const Explore = () => {
       numbers: 1,
       title: "Awards",
     },
-    
+    {
+      id: 3,
+      icons: <FaPeopleGroup size={40}/>,
+      numbers: "+3000",
+      title: "Supporters",
+    },
     {
       id: 4,
       icons: <ImOffice size={40}/>,
       numbers: 1,
       title: "Branch Office",
     },
-    {
-        id: 3,
-        icons: <FaPeopleGroup size={40}/>,
-        numbers: "+3000",
-        title: "Number Of Supporters",
-      },
   ];
 
   return (

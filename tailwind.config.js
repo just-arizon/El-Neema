@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        manrope: ['Manrope', 'sans-serif'], // Adding Manrope font family
+        Inter: ['Inter', 'sans-serif'], // Adding Manrope font family
       },
       backgroundImage: {
         'custom-image': "url('/images/your-image.jpg')", // Example for custom background image

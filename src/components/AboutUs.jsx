@@ -45,7 +45,7 @@ const aboutUs = () => {
             <div className="w-12 h-1 lg:mt-2 bg-orange-400"></div>
           </div>
 
-          <p className="text-center lg:text-start text-md mb-24">
+          <p className="text-center lg:text-start  mb-24">
             The Glow Foundation, established in September 2022, has been working
             for several years. Its mission is to provide assistance to
             underprivileged children, including street kids, slum kids, orphans,
