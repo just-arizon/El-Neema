@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Donation from './components/Donation';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import Logo from "../public/favicon-32x32.png";
+import Testimonials from './components/Testimonials';
 
 function App() {
   const config = {
@@ -46,6 +47,7 @@ function App() {
     <Donation fwConfig={fwConfig}/>
     <About />
     <Explore />
+    <Testimonials />
     <Footer />
 
     </>

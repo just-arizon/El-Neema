@@ -37,12 +37,12 @@ const LandingPage = () => {
             animate="visible"
             exit="hidden"
             transition={{ staggerChildren: 0.5 }} // Staggering the child elements
-            className="text-white lg:text-7xl md:text-5xl text-3xl lg:font-semibold font-bold lg:text-start text-center lg:w-full md:w-full"
+            className="text-white lg:text-7xl md:text-5xl text-3xl  font-bold lg:text-start text-center lg:w-full md:w-full"
           >
             <motion.div
               variants={textVariant}
               custom={0}
-              className="text-orange-400"
+              className="text-orange-400 font-extrabold"
             >
               Empowering Underprivileged
             </motion.div>
