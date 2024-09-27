@@ -39,7 +39,7 @@ const Donation = ({ fwConfig }) => {
   ];
 
   return (
-    <section className="flex justify-center lg:h-72 bg-purple- relative lg:mx-20 px-5">
+    <section className="flex justify-center lg:h-72 bg-purple- relative lg:mx-20 px-5 relative -top-20 lg:-top-0">
       <Card className="grid lg:grid-cols-4 grid-cols-1 lg:absolute -top-16 relative">
         {items.map((item, index) => (
           <div
