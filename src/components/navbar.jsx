@@ -37,22 +37,22 @@ const Navbar = () => {
       <div className="flex items-center justify-between py- lg:px-20 px-5">
         {/* Logo */}
         <div>
-          <Image src={Logo} alt="Logo" className="md:cursor-pointer h-20" />
+          <Image src={Logo} alt="Logo" className="md:cursor-pointer h-16" />
         </div>
 
         {/* Menu Items */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-2">
           {menuItems.map((item, index) => (
             <li key={index} className="">
               {item.subMenu ? (
                 <Dropdown>
                   <DropdownTrigger>
-                    <Button unstyled className="flex items-center bg-transparent text-black hover:text-orange-400 ">
+                    <Button variant="" disableRipple className="flex items-center bg-transparent text-black hover:text-orange-400 ">
                       {item.name}
-                      <FaChevronDown className="ml-2" />
+                      <FaChevronDown className="ml-" />
                     </Button>
                   </DropdownTrigger>
-                  <DropdownMenu aria-label={`${item.name} submenu`} className=" w-full hover:rounded-none">
+                  <DropdownMenu aria-label={`${item.name} submenu`} className=" w-full p-0  rounded-none">
                     {item.subMenu.map((subItem, subIndex) => (
                       <DropdownItem key={subIndex}>
                         <Link href="#" className="hover:text-orange-400 hover:bg-transparent text-black">{subItem}</Link>
