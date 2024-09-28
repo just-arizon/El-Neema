@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/El-neema.svg"; // Replace with your actual logo path
-import { Link, Image, Button } from "@nextui-org/react";
+import { Link, Image, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem  } from "@nextui-org/react";
+import { FaPhoneAlt, FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { IoLocationSharp } from "react-icons/io5";
+
 
 const Navbar = () => {
+  const [openAccordion, setOpenAccordion] = useState([]);
+
+
   const menuItems = [
     {
       name: "Charity",
@@ -37,25 +44,68 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center gap-8">
           {menuItems.map((item, index) => (
             <li key={index} className="">
-              <Link
-                href={item.link}
-                className={`text-black hover:text-orange-400 text-l ${
-                  item.isButton
-                    ? "bg-orange-400 text-white px-10 py-2 font-medium rounded-full hover:text-black"
-                    : ""
-                }`}
-              >
-                {item.name}
-              </Link>
+              {item.subMenu ? (
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button unstyled className="flex items-center bg-transparent text-black hover:text-orange-400 ">
+                      {item.name}
+                      <FaChevronDown className="ml-2" />
+                    </Button>
+                  </DropdownTrigger>
+                  <DropdownMenu aria-label={`${item.name} submenu`} className=" w-full hover:rounded-none">
+                    {item.subMenu.map((subItem, subIndex) => (
+                      <DropdownItem key={subIndex}>
+                        <Link href="#" className="hover:text-orange-400 hover:bg-transparent text-black">{subItem}</Link>
+                      </DropdownItem>
+                    ))}
+                  </DropdownMenu>
+                </Dropdown>
+              ) : item.isButton ? (
+                <Button
+                  as={Link}
+                  href={item.link}
+                  className="bg-orange-400 text-white rounded-full font-bold px-8 w-full md:w-auto"
+                  size="md"
+                >
+                  {item.name}
+                </Button>
+              ) : (
+                <Button
+                  className="w-full block py-2 text-black hover:text-orange-400 bg-transparent"
+                  href={item.link}
+                >
+                  {item.name}
+                </Button>
+              )}
             </li>
           ))}
         </ul>
 
-        {/* Mobile Menu Icon (Optional) */}
-        <div className="md:hidden">
-          <Button className="text-black">Menu</Button> {/* Placeholder for menu icon */}
-        </div>
       </div>
+
+      {/* Contact Info Section at the Bottom */}
+      {/* <div className="bg-[#1a1a1a] w-full py-10 text-white text-center gap-2 grid px-3">
+        <div className="grid gap-5">
+          <small className="flex gap-1">
+            <div className="grid items-center">
+              <FaPhoneAlt />
+            </div>
+            <div>+234 813 628 0417</div>
+          </small>
+          <small className="flex gap-1">
+            <div className="grid items-center">
+              <MdOutlineMailOutline />
+            </div>
+            <div>elneema@gmail.com</div>
+          </small>
+          <small className="flex gap-1">
+            <div className="grid items-center">
+              <IoLocationSharp />
+            </div>
+            <div>No. 8, Professor Olajide Ayinla Cresent</div>
+          </small>
+        </div>
+      </div> */}
     </nav>
   );
 };
